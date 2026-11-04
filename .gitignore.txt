@@ -1,0 +1,21 @@
+# Archivos temporales
+*.log
+*.tmp
+
+# Configuración privada
+.env
+.env.*
+config.local.php
+
+# Dependencias
+/vendor/
+/node_modules/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Copias de seguridad
+*.bak
+*.sql
