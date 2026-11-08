@@ -601,3 +601,108 @@ tr:hover td {
     border-radius: 7px;
     margin-bottom: 20px;
 }
+
+/* ASSISTENZE */
+
+.search-form {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.search-form input {
+    flex: 1;
+    min-width: 220px;
+    background: #111827;
+    border: 1px solid #334155;
+    border-radius: 7px;
+    padding: 11px 14px;
+    color: #f1f5f9;
+}
+
+.search-form select {
+    background: #111827;
+    border: 1px solid #334155;
+    border-radius: 7px;
+    padding: 11px 14px;
+    color: #f1f5f9;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.status-pending {
+    background: #422006;
+    color: #fbbf24;
+}
+
+.status-in_progress {
+    background: #172554;
+    color: #93c5fd;
+}
+
+.status-completed {
+    background: #14532d;
+    color: #86efac;
+}
+
+.status-waiting_parts {
+    background: #4c1d95;
+    color: #c4b5fd;
+}
+
+table small {
+    color: #94a3b8;
+    font-size: 12px;
+}
+
+/* ASSISTENZE - FORM E DETTAGLI */
+
+.field-help {
+    color: #94a3b8;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.error-message {
+    background: #450a0a;
+    color: #fecaca;
+    border: 1px solid #991b1b;
+    padding: 14px 18px;
+    border-radius: 7px;
+    margin-bottom: 20px;
+}
+
+.error-message p {
+    margin: 4px 0;
+}
+
+.warning-text {
+    color: #fca5a5;
+    background: #450a0a;
+    border: 1px solid #991b1b;
+    padding: 14px;
+    border-radius: 7px;
+    margin-top: 20px;
+    line-height: 1.6;
+}
+
+.delete-confirmation {
+    max-width: 750px;
+}
+
+.delete-confirmation p {
+    color: #cbd5e1;
+    line-height: 1.6;
+}
+
+.delete-confirmation .form-actions {
+    justify-content: flex-start;
+}
