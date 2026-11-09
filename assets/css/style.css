@@ -706,3 +706,28 @@ table small {
 .delete-confirmation .form-actions {
     justify-content: flex-start;
 }
+
+/* STORICO ATTIVITA */
+
+.history-action {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.action-create {
+    background: #14532d;
+    color: #86efac;
+}
+
+.action-update {
+    background: #172554;
+    color: #93c5fd;
+}
+
+.action-delete {
+    background: #450a0a;
+    color: #fca5a5;
+}
