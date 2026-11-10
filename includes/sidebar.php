@@ -25,6 +25,10 @@
             <span>⚙</span> Assistenze
         </a>
 
+        <a href="/Progetto Digitalizzazione/modules/agenda/" class="nav-link">
+            <span>☑</span> Agenda attività
+        </a>
+
         <a href="/Progetto Digitalizzazione/modules/storico/" class="nav-link">
             <span>◷</span> Storico
         </a>
