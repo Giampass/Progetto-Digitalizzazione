@@ -78,8 +78,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <h1>Nuovo cliente</h1>
             <p>Inserimento anagrafica cliente</p>
         </div>
-
-        <?php include '../../includes/technician-selector.php'; ?>
     </header>
 
     <section class="panel">

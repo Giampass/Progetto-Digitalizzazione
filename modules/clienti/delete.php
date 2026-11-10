@@ -71,7 +71,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <h1>Elimina cliente</h1>
         <p>Conferma eliminazione</p>
     </div>
-    <?php include '../../includes/technician-selector.php'; ?>
 </header>
 
 <section class="panel">

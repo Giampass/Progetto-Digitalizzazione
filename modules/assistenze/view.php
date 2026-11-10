@@ -79,7 +79,7 @@ $statusLabel = $labels[$assistance['status']] ?? 'Non definito';
                 <p>Informazioni complete dell'intervento</p>
             </div>
 
-            <?php include '../../includes/technician-selector.php'; ?>
+             
 
             <div class="date"><?= date('d/m/Y') ?></div>
         </header>

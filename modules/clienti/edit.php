@@ -95,7 +95,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <h1>Modifica cliente</h1>
         <p>Aggiornamento dati anagrafici</p>
     </div>
-    <?php include '../../includes/technician-selector.php'; ?>
 </header>
 
 <section class="panel">

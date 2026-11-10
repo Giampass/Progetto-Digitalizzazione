@@ -61,15 +61,18 @@ $printers = $stmt->fetchAll();
                 <h1>Stampanti</h1>
                 <p>Gestione delle stampanti dei clienti</p>
             </div>
-
-            <?php include '../../includes/technician-selector.php'; ?>
-
+            
             <div class="date">
                 <?= date('d/m/Y') ?>
             </div>
         </header>
 
         <section class="content">
+            <?php if (isset($_GET['deleted'])): ?>
+                <div class="success-message">
+                    Stampante eliminata correttamente.
+                </div>
+            <?php endif; ?>
 
             <div class="section-header">
                 <div>

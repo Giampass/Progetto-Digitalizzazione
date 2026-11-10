@@ -54,8 +54,6 @@ $recent = $pdo->query("
                 <p>Panoramica delle attività tecniche</p>
             </div>
 
-            <?php include 'includes/technician-selector.php'; ?>
-
             <div class="date">
                 <?= date('d/m/Y') ?>
             </div>

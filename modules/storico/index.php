@@ -43,9 +43,31 @@ $sql = "
         l.entity_id,
         l.description,
         l.created_at,
-        t.name AS technician_name
+        t.name AS technician_name,
+
+        CASE
+            WHEN l.entity_type = 'client' AND c.id IS NOT NULL THEN 1
+            WHEN l.entity_type = 'printer' AND p.id IS NOT NULL THEN 1
+            WHEN l.entity_type = 'assistance' AND a.id IS NOT NULL THEN 1
+            ELSE 0
+        END AS entity_exists
+
     FROM activity_logs l
-    LEFT JOIN technicians t ON t.id = l.technician_id
+
+    LEFT JOIN technicians t
+        ON t.id = l.technician_id
+
+    LEFT JOIN clients c
+        ON l.entity_type = 'client'
+        AND c.id = l.entity_id
+
+    LEFT JOIN printers p
+        ON l.entity_type = 'printer'
+        AND p.id = l.entity_id
+
+    LEFT JOIN assistances a
+        ON l.entity_type = 'assistance'
+        AND a.id = l.entity_id
 ";
 
 if (!empty($where)) {
@@ -102,7 +124,7 @@ function historyEntityLink($entity, $id) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Storico | TechSupport</title>
+    <title>Storico | SELCOCOPY</title>
     <link rel="stylesheet" href="../../assets/css/style.css">
 </head>
 <body>
@@ -118,8 +140,6 @@ function historyEntityLink($entity, $id) {
                 <h1>Storico attività</h1>
                 <p>Registro delle operazioni effettuate dai tecnici</p>
             </div>
-
-            <?php include '../../includes/technician-selector.php'; ?>
 
             <div class="date"><?= date('d/m/Y') ?></div>
         </header>
@@ -207,15 +227,7 @@ function historyEntityLink($entity, $id) {
 
                     <tbody>
 
-                    <?php if (empty($logs)): ?>
-
-                        <tr>
-                            <td colspan="7" class="empty-message">
-                                Nessuna attività registrata.
-                            </td>
-                        </tr>
-
-                    <?php else: ?>
+                    <?php if (count($logs) > 0): ?>
 
                         <?php foreach ($logs as $log): ?>
 
@@ -259,19 +271,55 @@ function historyEntityLink($entity, $id) {
                                 </td>
 
                                 <td>
-                                    <?php if ($link && $log['action'] !== 'DELETE'): ?>
+
+                                    <?php if ($log['action'] === 'DELETE'): ?>
+
+                                        <span class="empty-message">Elemento eliminato</span>
+
+                                    <?php elseif ($link && $log['entity_exists']): ?>
+
                                         <a href="<?= htmlspecialchars($link) ?>"
-                                           class="btn-secondary">
+                                        class="btn-secondary">
                                             Apri
                                         </a>
+
                                     <?php else: ?>
-                                        <span class="empty-message">—</span>
+
+                                        <button
+                                            type="button"
+                                            class="btn-secondary"
+                                            onclick="showMissingElement(
+                                                '<?= htmlspecialchars(
+                                                    historyEntityLabel($log['entity_type']),
+                                                    ENT_QUOTES,
+                                                    'UTF-8'
+                                                ) ?>'
+                                            )">
+                                            Non disponibile
+                                        </button>
+
                                     <?php endif; ?>
+
                                 </td>
                             </tr>
 
                         <?php endforeach; ?>
-
+                    <?php else: ?>
+                        <tr>
+                            <td colspan="7" class="empty-state">
+                                <div class="empty-state-content">
+                                    <span class="empty-state-icon">🔎</span>
+                                    <strong>Nessuna attività trovata</strong>
+                                    <p>
+                                            Non sono state trovate attività corrispondenti
+                                            ai criteri di ricerca.
+                                    </p>
+                                    <a href="index.php" class="btn-secondary">
+                                            Mostra tutte le attività
+                                    </a>
+                                </div>
+                             </td>
+                        </tr>
                     <?php endif; ?>
 
                     </tbody>
@@ -282,6 +330,34 @@ function historyEntityLink($entity, $id) {
         </section>
     </main>
 </div>
+<script>
+function showMissingElement(type) {
 
+    let message = '';
+
+    switch (type) {
+        case 'Cliente':
+            message = 'Il cliente associato a questa attività non è più presente nel sistema.';
+            break;
+
+        case 'Stampante':
+            message = 'La stampante associata a questa attività non è più presente nel sistema.';
+            break;
+
+        case 'Intervento':
+            message = 'Questo intervento non è più presente nel sistema.';
+            break;
+
+        default:
+            message = 'L’elemento richiesto non è disponibile.';
+    }
+
+    alert(
+        'ELEMENTO NON DISPONIBILE\n\n' +
+        message +
+        '\n\nIl registro storico è stato conservato.'
+    );
+}
+</script>
 </body>
 </html>

@@ -113,7 +113,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <p>Conferma dell'eliminazione</p>
             </div>
 
-            <?php include '../../includes/technician-selector.php'; ?>
+             
 
             <div class="date"><?= date('d/m/Y') ?></div>
         </header>

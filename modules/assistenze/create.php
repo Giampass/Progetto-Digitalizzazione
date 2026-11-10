@@ -235,9 +235,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <h1>Nuova assistenza</h1>
                 <p>Registra un nuovo intervento tecnico</p>
             </div>
-
-            <?php include '../../includes/technician-selector.php'; ?>
-
             <div class="date"><?= date('d/m/Y') ?></div>
         </header>
 

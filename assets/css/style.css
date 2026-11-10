@@ -31,14 +31,38 @@ body {
 .brand h2 {
     font-size: 21px;
     letter-spacing: 1px;
+    text-decoration: none;
 }
 
 .brand span {
     color: #c70c0c;
+    text-decoration: none;
 }
 
 .brand small {
     color: #94a3b8;
+    text-decoration: none;
+}
+
+
+.brand .brand-link {
+    text-decoration: none !important;
+    color: inherit;
+    display: block;
+}
+
+.brand .brand-link:visited,
+.brand .brand-link:hover,
+.brand .brand-link:active,
+.brand .brand-link:focus {
+    text-decoration: none !important;
+    color: inherit;
+}
+
+.brand .brand-link h2,
+.brand .brand-link span,
+.brand .brand-link small {
+    text-decoration: none !important;
 }
 
 nav {
@@ -65,6 +89,143 @@ nav {
     color: #64748b;
     font-size: 12px;
 }
+
+
+/* PROFILO TECNICO SIDEBAR */
+
+.sidebar-user {
+    margin-top: 30px;
+    margin-bottom: 25px;
+}
+
+.technician-profile {
+    position: relative;
+}
+
+.technician-profile summary {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    list-style: none;
+    transition: 0.2s;
+    color: #cbd5e1;
+}
+
+.technician-profile summary::-webkit-details-marker {
+    display: none;
+}
+
+.technician-profile summary:hover {
+    background: #26364f;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    border-radius: 50%;
+    background: #334155;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.user-avatar svg {
+    width: 21px;
+    height: 21px;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+}
+
+.user-info strong {
+    color: white;
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.user-info small {
+    color: #94a3b8;
+    font-size: 11px;
+    margin-top: 3px;
+}
+
+.profile-arrow {
+    color: #94a3b8;
+    transition: transform 0.2s;
+}
+
+.technician-profile[open] .profile-arrow {
+    transform: rotate(180deg);
+}
+
+/* MENU CAMBIO TECNICO */
+
+.technician-dropdown {
+    margin-top: 8px;
+    padding: 15px;
+    background: #26364f;
+    border-radius: 10px;
+    animation: profileFade 0.2s ease;
+}
+
+.technician-dropdown form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.technician-dropdown label {
+    color: #cbd5e1;
+    font-size: 12px;
+}
+
+.technician-dropdown select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #475569;
+    border-radius: 6px;
+    background: #172033;
+    color: white;
+    outline: none;
+}
+
+.technician-dropdown button {
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background: #c70c0c;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.technician-dropdown button:hover {
+    background: #a30a0a;
+}
+
+@keyframes profileFade {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 
 .main-content {
     flex: 1;
@@ -730,4 +891,47 @@ table small {
 .action-delete {
     background: #450a0a;
     color: #fca5a5;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 45px 20px !important;
+}
+
+.empty-state-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.empty-state-icon {
+    font-size: 38px;
+    margin-bottom: 5px;
+}
+
+.empty-state-content strong {
+    font-size: 17px;
+    color: #e2e8f0;
+}
+
+.empty-state-content p {
+    color: #94a3b8;
+    font-size: 14px;
+    margin: 0 0 8px;
+}
+
+.btn-secondary {
+    display: inline-block;
+    padding: 9px 16px;
+    background: #334155;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 13px;
+    transition: background 0.2s;
+}
+
+.btn-secondary:hover {
+    background: #475569;
 }

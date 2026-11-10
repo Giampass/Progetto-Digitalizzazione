@@ -136,7 +136,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <p>Registrazione di una nuova macchina</p>
             </div>
 
-            <?php include '../../includes/technician-selector.php'; ?>
+             
 
             <div class="date">
                 <?= date('d/m/Y') ?>

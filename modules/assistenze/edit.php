@@ -230,7 +230,7 @@ $datetimeValue = str_replace(' ', 'T', substr($form['assistance_date'], 0, 16));
                 <p>Aggiorna i dati dell'intervento</p>
             </div>
 
-            <?php include '../../includes/technician-selector.php'; ?>
+             
 
             <div class="date"><?= date('d/m/Y') ?></div>
         </header>

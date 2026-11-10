@@ -53,7 +53,6 @@ $printers = $stmt->fetchAll();
         <h1><?= htmlspecialchars($client['company_name']) ?></h1>
         <p>Scheda anagrafica cliente</p>
     </div>
-    <?php include '../../includes/technician-selector.php'; ?>
 </header>
 
 <section class="panel">

@@ -101,7 +101,7 @@ function printerStatusLabel($status) {
                 <p>Scheda tecnica della stampante</p>
             </div>
 
-            <?php include '../../includes/technician-selector.php'; ?>
+             
 
             <div class="date">
                 <?= date('d/m/Y') ?>

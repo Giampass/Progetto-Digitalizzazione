@@ -46,8 +46,6 @@ $clients = $stmt->fetchAll();
             <h1>Clienti</h1>
             <p>Gestione anagrafica clienti</p>
         </div>
-
-        <?php include '../../includes/technician-selector.php'; ?>
     </header>
 
     <section class="panel">

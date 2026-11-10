@@ -100,8 +100,6 @@ function assistanceStatusLabel($status) {
                 <p>Gestione degli interventi tecnici</p>
             </div>
 
-            <?php include '../../includes/technician-selector.php'; ?>
-
             <div class="date">
                 <?= date('d/m/Y') ?>
             </div>
