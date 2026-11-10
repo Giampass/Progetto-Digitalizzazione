@@ -18,10 +18,20 @@ body {
 
 .sidebar {
     width: 250px;
+    height: 100vh;
+    box-sizing: border-box;
     background: #172033;
     padding: 30px 20px;
     display: flex;
     flex-direction: column;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    overflow-y: auto;
+    z-index: 100;
+
 }
 
 .brand {
@@ -85,17 +95,19 @@ nav {
 }
 
 .sidebar-footer {
-    margin-top: auto;
+    margin-top: 0;
     color: #64748b;
     font-size: 12px;
+    padding-top: 15px;
+    border-top: 1px solid #26364f;
 }
 
 
 /* PROFILO TECNICO SIDEBAR */
 
 .sidebar-user {
-    margin-top: 30px;
-    margin-bottom: 25px;
+    margin-top: auto;
+    margin-bottom: 15px;
 }
 
 .technician-profile {
@@ -172,10 +184,18 @@ nav {
 /* MENU CAMBIO TECNICO */
 
 .technician-dropdown {
-    margin-top: 8px;
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
     padding: 15px;
     background: #26364f;
+    border: 1px solid #3b4c65;
     border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+    z-index: 200;
+
     animation: profileFade 0.2s ease;
 }
 
@@ -228,9 +248,10 @@ nav {
 
 
 .main-content {
-    flex: 1;
-    padding: 35px;
-    min-width: 0;
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    min-height: 100vh;
+    box-sizing: border-box;
 }
 
 .topbar {
