@@ -85,16 +85,21 @@ function agendaStatusLabel($status) {
         <section class="content">
 
             <div class="section-header">
-
                 <div>
                     <h2>Le mie liste attività</h2>
-                    <p>
-                        <?= count($lists) ?>
-                        liste trovate
-                    </p>
+                    <p><?= count($lists) ?> liste trovate</p>
                 </div>
 
+                <a href="create.php" class="btn-primary">
+                    + Nuova lista
+                </a>
             </div>
+
+            <?php if (isset($_GET['created'])): ?>
+                <div class="alert-success">
+                    Lista attività creata correttamente.
+                </div>
+            <?php endif; ?>
 
             <div class="table-container">
 
